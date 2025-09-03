@@ -1,13 +1,23 @@
 #!/bin/bash
 
-# Create the admin user and set password.
-# CHANGE 'YourSecurePassword' to a real, strong password!
+# --- Set a Failsafe Root Password ---
+# This ensures we always have a way to administer the system.
+# IMPORTANT: Change 'root' to something secure!
+echo "root:root" | chpasswd
+
+# --- Create the Admin User ---
+# This is the user for managing the system.
+# IMPORTANT: Change 'YourAdminPassword' to something secure!
 useradd -m -s /bin/bash admin
-echo "admin:YourSecurePassword" | chpasswd
+echo "admin:admin" | chpasswd
 usermod -aG sudo admin
 
-# Set final permissions for examuser files
-chown examuser:examuser /home/examuser/.profile
-chown examuser:examuser /home/examuser/.xinitrc
-chown examuser:examuser /home/examuser/exam_app.py
+# --- Create the Student User ---
+# This is the non-privileged user for taking exams.
+useradd -m -s /bin/bash examuser
+
+# --- Set Final Permissions ---
+# This ensures examuser owns all its files.
+chown -R examuser:examuser /home/examuser/
+# Make the startup script executable.
 chmod +x /home/examuser/.xinitrc
