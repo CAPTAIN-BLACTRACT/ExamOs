@@ -1,5 +1,11 @@
+# Graphical Server and Window Manager
 xorg
 openbox
-python3-tk
-dos2unix
 xserver-xorg-legacy
+
+# Python and GUI Toolkit
+python3
+python3-tk
+
+# Utilities
+dos2unix
