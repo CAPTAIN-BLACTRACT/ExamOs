@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Create the admin user and set password.
+# CHANGE 'YourSecurePassword' to a real, strong password!
+useradd -m -s /bin/bash admin
+echo "admin:YourSecurePassword" | chpasswd
+usermod -aG sudo admin
+
+# Set final permissions for examuser files
+chown examuser:examuser /home/examuser/.profile
+chown examuser:examuser /home/examuser/.xinitrc
+chown examuser:examuser /home/examuser/exam_app.py
+chmod +x /home/examuser/.xinitrc
