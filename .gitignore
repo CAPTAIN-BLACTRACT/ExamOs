@@ -1,0 +1,11 @@
+--- ExamOS .gitignore (v2) ---
+Ignore all contents of the build directory...
+/exam-os-build/*
+
+...EXCEPT for the config directory (our blueprint), which we MUST keep in version control.
+The '!' negates the rule for this specific path.
+!/exam-os-build/config/
+
+Also, keep this .gitignore file itself if it's inside the build directory
+(This line is usually not needed if .gitignore is in the root, but it's safe to have)
+!/exam-os-build/.gitignore
