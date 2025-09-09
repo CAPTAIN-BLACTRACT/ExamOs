@@ -1,11 +1,16 @@
-# Graphical Server and Window Manager
-xorg
-openbox
-xserver-xorg-legacy
+This is the "shopping list" for our OS.
+The core tool that creates the live user at boot time.
+live-config
 
-# Python and GUI Toolkit
+The graphical server and window manager.
+xorg
+xinit
+xserver-xorg-legacy
+openbox
+
+Python and the GUI toolkit for our application.
 python3
 python3-tk
 
-# Utilities
+A utility to fix text file line endings, just in case.
 dos2unix
